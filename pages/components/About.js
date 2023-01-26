@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 export default function About () {
   return (
     <div className="w-1/5 max-h-3/6 m-12 p-8 flex flex-col fixed right-1 top-12 bg-gradient-to-b from-secondary to-primary rounded-xl items-center">

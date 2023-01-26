@@ -3,7 +3,7 @@ import { SiGithub, SiLinkedin } from 'react-icons/si';
 
 export default function Footer () {
   return (
-    <footer className="footer items-center p-4 bg-secondary text-neutral">
+    <footer className="footer items-center p-4 bg-secondary text-neutral flex-shrink-0">
     <div className="items-center grid-flow-col">
       <p>Copyright © 2023 - All rights reserved</p>
     </div>
