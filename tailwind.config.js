@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: ['./pages/**/*.{js,ts,jsx,tsx}', '/components/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -18,6 +21,18 @@ module.exports = {
           "success": "#8b8d52",
           "warning": "#FF3404",
           "error": "#F76050",
+          ".use-dosis": {
+            "font-family": `'Dosis', sans-serif`
+          },
+          ".use-quicksand": {
+            "font-family": `'Quicksand', sans-serif`
+          },
+          ".use-megrim": {
+            "font-family": `'Megrim', cursive`
+          },
+          ".use-one": {
+            "font-family": `'Poiret One', cursive;`
+          }
         }
       }
     ]
