@@ -11,8 +11,10 @@
   "dependencies": {
     "@auth0/nextjs-auth0": "^2.2.0",
     "@next/font": "13.1.5",
+    "autoprefixer": "^10.4.13",
     "axios": "^1.2.4",
     "daisyui": "^2.47.1",
+    "dotenv": "^16.0.3",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.5",
     "next": "13.1.5",
