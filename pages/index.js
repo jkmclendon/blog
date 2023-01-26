@@ -38,6 +38,8 @@ export default function Home({firstPosts}) {
       })
   }
 
+  useEffect(getPosts, [page]);
+
 
   return (
     <>

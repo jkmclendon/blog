@@ -8,7 +8,7 @@ export default function PostCard ({post, page}) {
   const [numLikes, setNumLikes] = useState(0);
 
   useEffect(() => {
-    setHasLiked(false);
+    setNumLikes(post.liked);
   }, [page, post])
 
   const upvote = (id) => {
@@ -29,10 +29,11 @@ export default function PostCard ({post, page}) {
         <div className="card-actions justify-between items-end text-sm text-neutral">
           <h5>{post.date}</h5>
           <div className="flex items-center">
-          <button type="button" className="text-primary bg-gradient-to-r from-neutral via-yellow-400 to-secondary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center w-24 mask mask-diamond" onClick={(e) => {
+          <button key={post.id} type="button" className="text-primary bg-gradient-to-r from-neutral via-yellow-400 to-secondary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center w-24 mask mask-diamond" onClick={(e) => {
+            e.preventDefault();
             upvote(post.id);
             setNumLikes(numLikes + 1);
-            }}>{post.liked + numLikes}</button>&nbsp;&nbsp;
+            }}>{numLikes}</button>&nbsp;&nbsp;
             <Link href={`/post/${post.id}`} className="btn btn-neutral">Read</Link>
           </div>
         </div>
