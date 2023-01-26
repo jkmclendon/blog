@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 export default function About () {
   return (
-    <div className="flex flex-col w-1/5 max-h-3/6 m-12 p-8 fixed right-1 top-12 bg-gradient-to-b from-secondary to-primary rounded-xl items-center">
+    <div className="lg:flex lg:flex-col w-1/5 max-h-3/6 m-12 p-8 fixed right-1 top-12 bg-gradient-to-b from-secondary to-primary rounded-xl items-center hidden">
       <div className="avatar max-w-full">
         <div className="w-48 mask mask-hexagon">
           <img src="https://res.cloudinary.com/dhjvvkko0/image/upload/v1674660103/52967065_333496957269215_9135451900232073216_n_uelcfx.jpg" alt="Julian McLendon"/>

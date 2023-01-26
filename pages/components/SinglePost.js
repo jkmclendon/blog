@@ -25,9 +25,9 @@ export default function SinglePost ({post}) {
 
   return (
     <div className="w-2/3 m-12 p-8 flex flex-col items-center bg-primary bg-opacity-70 rounded-xl">
-      <div className="hero h-full bg-base-200">
-        <div className="hero-content flex-col lg:flex-row items-start">
-          <div className="flex flex-col justify-between">
+      <div className="hero h-full min-w-fit bg-base-200">
+        <div className="hero-content max-w-screen flex-col lg:flex-row items-start">
+          <div className="flex flex-col justify-between sticky min-w-fit">
             <img src={post.img} className="max-w-sm rounded-lg shadow-2xl m-8" />
             <div className="flex justify-between items-center mx-4">
               <Link href={`/`} className="btn btn-neutral use-quicksand">{'<- Posts'}</Link>
@@ -41,7 +41,7 @@ export default function SinglePost ({post}) {
                 }}>{post.liked + addLike}</button>
             </div>
           </div>
-          <div>
+          <div className="p-4">
             <h1 className="text-5xl font-bold text-neutral use-dosis">{post.title}</h1>
             <p className="py-6 whitespace-pre-line use-quicksand text-xl">{post.body}</p>
           </div>
