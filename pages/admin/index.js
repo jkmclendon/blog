@@ -10,7 +10,6 @@ import SinglePost from '@/pages/components/SinglePost.js';
 import Footer from '@/pages/components/Footer.js';
 import About from '@/pages/components/About.js';
 import { useUser } from '@auth0/nextjs-auth0/client';
-import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 export default function Admin () {
   const { user, error, isLoading } = useUser();
@@ -42,7 +41,7 @@ export default function Admin () {
   }
 
   return (
-    <UserProvider>
+    <>
       <Head>
         <title>Admin Panel</title>
         <meta name="description" content="Admin Panel" />
@@ -95,6 +94,6 @@ export default function Admin () {
         <Link href="../api/auth/logout" className="btn btn-neutral">Logout</Link>
         <Footer />
       </div>
-    </UserProvider>
+    </>
   )
 }
