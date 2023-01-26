@@ -22,8 +22,8 @@ export default function PostCard ({post, page}) {
 
   return (
     <div className="card card-side bg-base-100 shadow-xl m-4 w-4/5">
-      <figure><img src={post.img} alt="lion" className="min-h-full min-w-24"/></figure>
-      <div className="card-body">
+      <figure className="min-h-full min-w-24 max-w-24"><img src={post.img} alt={post.title} className="min-h-full min-w-24 max-w-24"/></figure>
+      <div className="card-body w-full">
         <h2 className="card-title text-neutral">{post.title}</h2>
         <p>{post.body.slice(0, 150)}{post.body.length > 150 ? '...' : ''}</p>
         <div className="card-actions justify-between items-end text-sm text-neutral">
@@ -33,6 +33,7 @@ export default function PostCard ({post, page}) {
             e.preventDefault();
             upvote(post.id);
             setNumLikes(numLikes + 1);
+            setTimeout(() => {e.target.disabled = true}, 5000);
             }}>{numLikes}</button>&nbsp;&nbsp;
             <Link href={`/post/${post.id}`} className="btn btn-neutral">Read</Link>
           </div>

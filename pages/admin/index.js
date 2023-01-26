@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import {useRouter} from 'next/router';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
@@ -8,8 +9,10 @@ import Background from '@/pages/components/Background.js';
 import SinglePost from '@/pages/components/SinglePost.js';
 import Footer from '@/pages/components/Footer.js';
 import About from '@/pages/components/About.js';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 export default function Admin () {
+  const { user, error, isLoading } = useUser();
 
   const blankForm = {
     img: '',
@@ -18,6 +21,24 @@ export default function Admin () {
   }
 
   const [form, setForm] = useState(blankForm);
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>{error.message}</div>;
+  if (!user || user.nickname !== 'jkmclendon') {
+    window.location.replace('/api/auth/login');
+    return
+  }
+
+  const submitPost = () => {
+    console.log(form);
+    let escaped = {
+      img: form.img,
+      title: form.title,
+      body: form.body
+    }
+    axios.post('../api/addPost', escaped)
+      .then(response => window.location.replace('/'));
+  }
 
   return (
     <>
@@ -49,15 +70,15 @@ export default function Admin () {
               <span className="label-text">Body</span>
               <span className="label-text-alt">Chars: {form.body.length}/2000</span>
             </label>
-            <textarea className="textarea textarea-bordered h-24" placeholder="Type here" value={form.body} onChange={(e) => {
+            <textarea className="textarea textarea-bordered h-72" placeholder="Type here" value={form.body} onChange={(e) => {
               e.preventDefault();
               setForm({...form, body: e.target.value});
             }}></textarea>
             <br /><br />
             <label className="label">
               <span className="label-text">Image Url</span>&nbsp;&nbsp;&nbsp;
-              <span className="label-text-alt">DID YOU MAKE SURE IT&apos;S /w_600,h_600,c_fit/?</span>
             </label>
+            <span className="text-m">DID YOU MAKE SURE IT&apos;S /w_600,h_600,c_fit/?</span>
             <input type="text" placeholder="Type here" value={form.img} className="input input-bordered w-full max-w-l" onChange={(e) => {
               e.preventDefault();
               setForm({...form, img: e.target.value});
@@ -65,11 +86,12 @@ export default function Admin () {
             <br /> <br />
             <button className="btn btn-active btn-neutral" onClick={(e) => {
               e.preventDefault();
-              console.log(form);
+              submitPost();
             }}>Post</button>
           </div>
         </div>
         <About />
+        <Link href="../api/auth/logout" className="btn btn-neutral">Logout</Link>
         <Footer />
       </div>
     </>

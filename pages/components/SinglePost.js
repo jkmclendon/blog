@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import axios from 'axios';
 import {useState} from 'react';
+import Link from 'next/link';
 
 export default function SinglePost ({post}) {
   const [addLike, setAddLike] = useState(0);
@@ -27,16 +28,19 @@ export default function SinglePost ({post}) {
         <div className="hero-content flex-col lg:flex-row items-start">
           <div className="flex flex-col justify-between">
             <img src={post.img} className="max-w-sm rounded-lg shadow-2xl m-8" />
-            <button type="button" className="text-primary bg-gradient-to-r from-neutral via-yellow-400 to-secondary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg px-5 py-2.5 text-center w-32 h-32 mask mask-diamond text-4xl" onClick={(e) => {
+            <div className="flex justify-between items-center mx-4">
+              <Link href={`/`} className="btn btn-neutral">{'<- Posts'}</Link>
+              <button type="button" className="text-primary bg-gradient-to-r from-neutral via-yellow-400 to-secondary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg px-5 py-2.5 text-center w-32 h-32 mask mask-diamond text-4xl" onClick={(e) => {
                   e.preventDefault();
                   upvote(post.id);
                   setAddLike(addLike + 1);
+                  setTimeout(() => {e.target.disabled = true}, 5000);
                 }}>{post.liked + addLike}</button>
+            </div>
           </div>
           <div>
             <h1 className="text-5xl font-bold text-neutral">{post.title}</h1>
             <p className="py-6 whitespace-pre-line">{post.body}</p>
-            <button className="btn btn-primary">Get Started</button>
           </div>
         </div>
       </div>
