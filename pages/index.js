@@ -52,6 +52,7 @@ export default function Home({firstPosts}) {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"></link>
         <link rel="manifest" href="/site.webmanifest"></link>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="image" property="og:image" content="https://res.cloudinary.com/dhjvvkko0/image/upload/v1674770072/Screen_Shot_2023-01-26_at_4.54.18_PM_eqwe9i.jpg"></meta>
       </Head>
       <div className="app w-screen h-screen bg-fixed flex flex-col justify-between">
         <Navbar />
