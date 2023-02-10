@@ -9,4 +9,4 @@ Welcome to Personal Blog, a platform where I share my thoughts and document my j
 * Liking System: Personal Blog includes a unique "liking" system, allowing users to show their appreciation for posts.
 * AWS Deployment: The platform is deployed on Amazon Web Services, ensuring high availability and performance.
 * Secure Login: Personal Blog uses Auth0 for secure user authentication and authorization.
-* MidJourney AI Integration: Personal Blog utilizes the capabilities of MidJourney AI to provide pleasing visual assets.
+* MidJourney AI: Personal Blog utilizes the capabilities of MidJourney AI to provide pleasing visual assets.
