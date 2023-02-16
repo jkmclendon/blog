@@ -24,7 +24,7 @@ export default function SinglePost ({post}) {
   }
 
   return (
-    <div className="w-2/3 m-12 p-8 flex flex-col items-center bg-primary bg-opacity-70 rounded-xl">
+    <div className="w-2/3 m-12 p-8 flex flex-col flex-wrap items-center bg-primary bg-opacity-70 rounded-xl">
       <div className="hero h-full min-w-fit bg-base-200">
         <div className="hero-content max-w-screen flex-col lg:flex-row items-start">
           <div className="flex flex-col justify-between sticky min-w-fit">
